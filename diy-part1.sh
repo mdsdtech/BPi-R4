@@ -15,5 +15,5 @@
 
 # Add a feed source
 
-echo 'src-git opwrt https://github.com/kiddin9/openwrt-packages' >>feeds.conf.default
+echo 'src-git 5G-Modem-Support https://github.com/mdsdtech/5G-Modem-Support.git' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
