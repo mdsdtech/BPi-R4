@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Build BPI-R4 Snapshot
+name: Build BPIR4 Snapshot
 
 on:
   repository_dispatch:
@@ -42,20 +42,20 @@ jobs:
       uses: actions/checkout@main
 
     - name: Free disk space
-          run: |
-            sudo rm -rf /etc/apt/sources.list.d
-            sudo swapoff -a
-            sudo rm -f /swapfile
-            sudo docker image prune -a -f
-            sudo systemctl stop docker
-            sudo snap set system refresh.retain=2
-            sudo apt-get -y purge firefox clang* ghc* google* llvm* mono* mongo* mysql* php*
-            sudo apt-get -y autoremove --purge
-            sudo apt-get clean
-            sudo rm -rf /etc/mysql /etc/php /usr/lib/jvm /usr/libexec/docker /usr/local /usr/src/* /var/lib/docker /var/lib/gems /var/lib/mysql /var/lib/snapd /etc/skel /opt/{microsoft,az,hostedtoolcache,cni,mssql-tools,pipx} /usr/share/{az*,dotnet,swift,miniconda,gradle*,java,kotlinc,ri,sbt} /root/{.sbt,.local,.npm}
-            sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
-            rm -rf ~/{.cargo,.dotnet,.rustup}
-            df -Th
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d
+        sudo swapoff -a
+        sudo rm -f /swapfile
+        sudo docker image prune -a -f
+        sudo systemctl stop docker
+        sudo snap set system refresh.retain=2
+        sudo apt-get -y purge firefox clang* ghc* google* llvm* mono* mongo* mysql* php*
+        sudo apt-get -y autoremove --purge
+        sudo apt-get clean
+        sudo rm -rf /etc/mysql /etc/php /usr/lib/jvm /usr/libexec/docker /usr/local /usr/src/* /var/lib/docker /var/lib/gems /var/lib/mysql /var/lib/snapd /etc/skel /opt/{microsoft,az,hostedtoolcache,cni,mssql-tools,pipx} /usr/share/{az*,dotnet,swift,miniconda,gradle*,java,kotlinc,ri,sbt} /root/{.sbt,.local,.npm}
+        sudo sed -i '/NVM_DIR/d;/skel/d' /root/{.bashrc,.profile}
+        rm -rf ~/{.cargo,.dotnet,.rustup}
+        df -Th
 
     - name: Initialization environment
       env:
