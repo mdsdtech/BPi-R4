@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Build BPIR4 Snapshot
+name: Build BPIR4
 
 on:
   repository_dispatch:
